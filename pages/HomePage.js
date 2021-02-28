@@ -8,7 +8,7 @@ import {
   getSobreBtn,
 } from './NavBar';
 
-export function navigate() {
+export function goToHomePage() {
   go('http://www.conteudodigital.net.br/');
 }
 
@@ -30,4 +30,16 @@ export function clickOnContatoBtn() {
 
 export function clickOnHomeBtn() {
   return getHomeBtn().click();
+}
+
+export function getConhecaOSiteBtn() {
+  return cy.get('.buttons > .red-btn');
+}
+
+export function getLeiaOsArtigosBtn() {
+  return cy.get('.green-btn');
+}
+
+export function getIntroText() {
+  return cy.get('.intro-text');
 }
