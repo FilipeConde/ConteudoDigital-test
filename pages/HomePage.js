@@ -1,35 +1,35 @@
 /// <reference types="cypress" />
 import { navigate as go } from './GeneralPage';
 import {
-  getBlogBtn,
-  getContatoBtn,
-  getHomeBtn,
-  getQuemSomosBtn,
-  getSobreBtn,
+  getBlogNavBtn,
+  getContatoNavBtn,
+  getHomeNavBtn,
+  getQuemSomosNavBtn,
+  getSobreNavBtn,
 } from './NavBar';
 
 export function goToHomePage() {
   go('http://www.conteudodigital.net.br/');
 }
 
-export function clickOnSobreBtn() {
-  return getSobreBtn().click();
+export function clickOnSobreNavBtn() {
+  return getSobreNavBtn().click();
 }
 
-export function clickOnQuemSomosBtn() {
-  return getQuemSomosBtn().click();
+export function clickOnQuemSomosNavBtn() {
+  return getQuemSomosNavBtn().click();
 }
 
-export function clickOnBlogBtn() {
-  return getBlogBtn().click();
+export function clickOnBlogNavBtn() {
+  return getBlogNavBtn().click();
 }
 
-export function clickOnContatoBtn() {
-  return getContatoBtn().click();
+export function clickOnContatoNavBtn() {
+  return getContatoNavBtn().click();
 }
 
-export function clickOnHomeBtn() {
-  return getHomeBtn().click();
+export function clickOnHomeNavBtn() {
+  return getHomeNavBtn().click();
 }
 
 export function getConhecaOSiteBtn() {
@@ -42,4 +42,8 @@ export function getLeiaOsArtigosBtn() {
 
 export function getIntroText() {
   return cy.get('.intro-text');
+}
+
+export function getListaDeClientesDiv() {
+  return cy.get('.client-list > div');
 }

@@ -8,14 +8,15 @@ import {
 
 import {
   goToHomePage,
-  clickOnSobreBtn,
-  clickOnBlogBtn,
-  clickOnContatoBtn,
-  clickOnQuemSomosBtn,
-  clickOnHomeBtn,
+  clickOnSobreNavBtn,
+  clickOnBlogNavBtn,
+  clickOnContatoNavBtn,
+  clickOnQuemSomosNavBtn,
+  clickOnHomeNavBtn,
   getConhecaOSiteBtn,
   getIntroText,
   getLeiaOsArtigosBtn,
+  getListaDeClientesDiv,
 } from '../../pages/HomePage';
 
 describe('Home page test', () => {
@@ -31,26 +32,26 @@ describe('Home page test', () => {
   });
   context('Navigation bar tests', () => {
     it('Should go to Sobre page by navigation bar', () => {
-      clickOnSobreBtn();
+      clickOnSobreNavBtn();
       checkPartialUrl('/sobre');
       totalyCheckPageTitle('SOBRE | Conteúdo Digital');
     });
     it('Should go to Quem Somos page by navigation bar', () => {
-      clickOnQuemSomosBtn();
+      clickOnQuemSomosNavBtn();
       checkPartialUrl('/quem-somos');
       totalyCheckPageTitle('QUEM SOMOS | Conteúdo Digital');
     });
     it('Should go to Home page by the navigation bar', () => {
-      clickOnHomeBtn();
+      clickOnHomeNavBtn();
       checkFullUrl('https://www.conteudodigital.net.br/');
     });
     it('Should go to Blog page by navigation bar', () => {
-      clickOnBlogBtn();
+      clickOnBlogNavBtn();
       checkPartialUrl('/blog');
       totalyCheckPageTitle('BLOG | Conteúdo Digital');
     });
     it('Should go to Contato page by navigation bar', () => {
-      clickOnContatoBtn();
+      clickOnContatoNavBtn();
       checkPartialUrl('/#contact');
     });
   });
@@ -75,6 +76,18 @@ describe('Home page test', () => {
       getLeiaOsArtigosBtn().should('be.visible').click();
       checkPartialUrl('/blog');
       totalyCheckPageTitle('BLOG | Conteúdo Digital');
+    });
+  });
+  context('"Com quem já trabalhamos" section validadions', () => {
+    afterEach(() => {
+      goToHomePage();
+    });
+    it('Should have 7 visible badges', () => {
+      getListaDeClientesDiv()
+        .scrollIntoView()
+        .children()
+        .should('have.length', 7)
+        .and('be.visible');
     });
   });
 });
