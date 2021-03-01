@@ -44,6 +44,14 @@ export function getIntroText() {
   return cy.get('.intro-text');
 }
 
-export function getListaDeClientesDiv() {
+export function getListaDeClientesContainer() {
   return cy.get('.client-list > div');
+}
+
+export function getBlogPostsContainer() {
+  return cy.get('.active');
+}
+
+export function getCarouselBlogPosts() {
+  return cy.get('.active').children('.latestnews-box');
 }

@@ -16,7 +16,9 @@ import {
   getConhecaOSiteBtn,
   getIntroText,
   getLeiaOsArtigosBtn,
-  getListaDeClientesDiv,
+  getListaDeClientesContainer,
+  getBlogPostsContainer,
+  getCarouselBlogPosts,
 } from '../../pages/HomePage';
 
 describe('Home page test', () => {
@@ -83,11 +85,26 @@ describe('Home page test', () => {
       goToHomePage();
     });
     it('Should have 7 visible badges', () => {
-      getListaDeClientesDiv()
+      getListaDeClientesContainer()
         .scrollIntoView()
         .children()
         .should('have.length', 7)
         .and('be.visible');
     });
+  });
+  context('"Blog" section validations', () => {
+    // afterEach(() => {
+    //   goToHomePage();
+    // });
+    it('Should have Carrousel with 4 posts displayed', () => {
+      getBlogPostsContainer()
+        .scrollIntoView()
+        .children()
+        .should('have.length', 5);
+    });
+    it('Should have 4 active posts', () => {
+      getCarouselBlogPosts().should('have.length', 4);
+    });
+    //create test for carousel navigation left and right
   });
 });
